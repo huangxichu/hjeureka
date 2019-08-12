@@ -1,0 +1,9 @@
+#bootstrap 会优先于 application 加载
+#spring:
+#  cloud:
+#    config:
+#      label: test #访问的分支
+##      uri: http://192.168.10.99:5001/ #config server 的地址
+#      uri: http://jenkins.ce:5001/ #config server 的地址
+#      name: eureka #文件名称，可以写多个，用逗号隔开
+#      profile: 6001

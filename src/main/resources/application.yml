@@ -1,0 +1,47 @@
+spring:
+  profiles:
+    active: 6001
+  application:
+    name: HjEureka
+  thymeleaf:
+    encoding: utf-8
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      #表示不返回时间戳，如果为true返回时间戳，如果这三行同时存在，以第三行为准即返回时间戳
+      write-dates-as-timestamps: false
+#  security:
+#    user:
+#      name: hjadmin
+#      password: abc123
+logging:
+  #  pattern:
+  #    console: "%d - %msg%n"
+  file: /tmp/logs/${spring.application.name}/${server.port}/log.log #日志记录文件存放位置，上线时修改为服务器的绝对路径 /usr/log
+  #  path: logs\
+  level:
+    com.hjyd: error
+#eureka:
+#  instance:
+#    hostname: 192.168.10.11
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+#    service-url:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#  server:
+#    wait-time-in-ms-when-sync-empty: 0
+#    enable-self-preservation: false
+management:
+  endpoints:
+    #    conditions:
+    #      enabled: true
+    health:
+      sensitive: false #关闭过滤敏感信息
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

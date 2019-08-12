@@ -1,0 +1,18 @@
+server:
+  port: 6001
+eureka:
+  instance:
+    hostname: jenkins.ce
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true #是否将该应用实例注册到 Eureka Server
+    fetch-registry: true
+    service-url:
+      defaultZone: http://jenkins.ce:6002/eureka/,http://jenkins.ce:6003/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 0
+    enable-self-preservation: false #自我保护机制，实际生产环境中需要启用，改为 true
+    eviction-interval-timer-in-ms: 10000 #清理间隔，实际生产环境中需要注释
+spring:
+  application:
+    name: HjEureka
